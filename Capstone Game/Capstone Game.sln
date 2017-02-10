@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capstone Game", "Capstone Game.csproj", "{22F5CE05-4CF3-4284-D76E-2CEB5289AA58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capstone Game.Editor", "Capstone Game.Editor.csproj", "{7037BEC4-A0AB-70A0-A4A0-0B8AEB3C7381}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22F5CE05-4CF3-4284-D76E-2CEB5289AA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F5CE05-4CF3-4284-D76E-2CEB5289AA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F5CE05-4CF3-4284-D76E-2CEB5289AA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F5CE05-4CF3-4284-D76E-2CEB5289AA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7037BEC4-A0AB-70A0-A4A0-0B8AEB3C7381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7037BEC4-A0AB-70A0-A4A0-0B8AEB3C7381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7037BEC4-A0AB-70A0-A4A0-0B8AEB3C7381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7037BEC4-A0AB-70A0-A4A0-0B8AEB3C7381}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
