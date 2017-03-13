@@ -3,55 +3,37 @@ using System.Collections;
 
 public class FighterAnimationDemo : MonoBehaviour {
 	
-	public Animator animator;
-
-	private Transform defaultCamTransform;
-	private Vector3 resetPos;
-	private Quaternion resetRot;
-	private GameObject cam;
-	private GameObject fighter;
+	public Animator anim;
+    public float speed = 10.0F;
+    public float rotationSpeed = 100.0F;
+	
 
 	void Start()
 	{
-		cam = GameObject.FindWithTag("MainCamera");
-		defaultCamTransform = cam.transform;
-		resetPos = defaultCamTransform.position;
-		resetRot = defaultCamTransform.rotation;
-		fighter = GameObject.FindWithTag("Player");
-		fighter.transform.position = new Vector3(0,0,0);
+        anim = GetComponent<Animator>();
 	}
 
-	void OnGUI () 
-	{
-		if (GUI.RepeatButton (new Rect (815, 535, 100, 30), "Reset Scene")) 
-		{
-			defaultCamTransform.position = resetPos;
-			defaultCamTransform.rotation = resetRot;
-			fighter.transform.position = new Vector3(0,0,0);
-			animator.Play("Idle");
-		}
-
-		if (GUI.RepeatButton (new Rect (25, 20, 100, 30), "Walk Forward")) 
-		{
-			animator.SetBool("Walk Forward", true);
-		}
-		else
-		{
-			animator.SetBool("Walk Forward", false);
-		}
-
-		if (GUI.RepeatButton (new Rect (25, 50, 100, 30), "Walk Backward")) 
-		{
-			animator.SetBool("Walk Backward", true);
-		}
-		else
-		{
-			animator.SetBool("Walk Backward", false);
-		}
-
-		if (GUI.Button (new Rect (25, 90, 100, 30), "Punch")) 
-		{
-			animator.SetTrigger("PunchTrigger");
-		}
-	}
+	void Update()
+    {
+        float translation = Input.GetAxis("Vertical") * speed;
+        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+        translation *= Time.deltaTime;
+        rotation *= Time.deltaTime;
+        transform.Translate(0, 0, translation);
+        transform.Rotate(0, rotation, 0);
+        if (Input.GetButtonDown("Punch"))
+        {
+            anim.SetTrigger("PunchTrigger");
+        }
+        if (translation != 0)
+        {
+            anim.SetBool("Walk Forward", true);
+            anim.SetBool("Idle", false);
+        }
+        else
+        {
+            anim.SetBool("Walk Forward", false);
+            anim.SetBool("Idle", true);
+        }
+    }
 }
