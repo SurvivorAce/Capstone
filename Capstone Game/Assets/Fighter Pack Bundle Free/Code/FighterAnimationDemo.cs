@@ -23,16 +23,16 @@ public class FighterAnimationDemo : MonoBehaviour {
         transform.Rotate(0, rotation, 0);
         if (Input.GetButtonDown("Punch"))
         {
-            anim.SetTrigger("PunchTrigger");
+            anim.SetTrigger("Punch");
         }
         if (translation != 0)
         {
-            anim.SetBool("Walk Forward", true);
+            anim.SetBool("WalkForward", true);
             anim.SetBool("Idle", false);
         }
         else
         {
-            anim.SetBool("Walk Forward", false);
+            anim.SetBool("WalkForward", false);
             anim.SetBool("Idle", true);
         }
     }
