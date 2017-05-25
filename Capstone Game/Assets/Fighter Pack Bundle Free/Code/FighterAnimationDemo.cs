@@ -6,10 +6,13 @@ public class FighterAnimationDemo : MonoBehaviour {
 	public Animator anim;
     public float speed = 10.0F;
     public float rotationSpeed = 100.0F;
+    public float moveSpeed = 10f;
+    private Rigidbody rbody;
 	
 
 	void Start()
 	{
+        rbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 	}
 
@@ -17,10 +20,16 @@ public class FighterAnimationDemo : MonoBehaviour {
     {
         float translation = Input.GetAxis("Vertical") * speed;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+        float inputX = Input.GetAxis("Horizontal");
+        float inputZ = Input.GetAxis("Vertical");
+        float moveX = inputX*moveSpeed*Time.deltaTime;
+        float moveZ = inputZ*moveSpeed*Time.deltaTime;
+        rbody.AddForce(moveX, 0f, moveZ);
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;
         transform.Translate(0, 0, translation);
         transform.Rotate(0, rotation, 0);
+        rbody.AddForce(moveX, 0f, moveZ);
         if (Input.GetKeyDown("e"))
         {
             anim.Play("Punch", -1, 0f);
